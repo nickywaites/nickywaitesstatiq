@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="Description" content="Author: Nicky Waites, Personal site of software engineer Nicky Waites">
+    <meta property="og:title" content="@Document.GetString("PageTitle")" />
+    <title>@Document.GetString("PageTitle")</title>
+
+    <link rel="shortcut icon" href="@Context.GetLink("/favicon.ico")" type="image/x-icon">
+    <link rel="icon" href="@Context.GetLink("/favicon.ico")" type="image/x-icon">
+
+    <link href="@Context.GetLink("tailwindcss/tailwind.min.css")" rel="stylesheet">
+    <link href="@Context.GetLink("font-awesome/css/all.min.css")" rel="stylesheet">
+    <link href="@Context.GetLink("css/site.css")" rel="stylesheet">
+
+</head>
+<body id="page-top">
+
+    <header class="text-gray-700 body-font">
+        <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+            <nav class="md:ml-auto flex flex-wrap items-center text-base justify-center ml-10">
+                <a class="mr-5 bg-transparent text-red-700 hover:bg-red-500 font-semibold hover:text-white py-1 px-2 border border-red-500 hover:border-transparent rounded" href="#About">About</a>
+                <a class="mr-5 bg-transparent text-red-700 hover:bg-red-500 font-semibold hover:text-white py-1 px-2 border border-red-500 hover:border-transparent rounded" href="#Projects">Work</a>
+                <a class="mr-5 bg-transparent text-red-700 hover:bg-red-500 font-semibold hover:text-white py-1 px-2 border border-red-500 hover:border-transparent rounded" href="#Contact">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    @RenderBody()
+
+    <footer class="text-gray-700 body-font">
+        <div class="container px-5 py-8 mx-auto flex items-center sm:flex-row flex-col">
+            <span>
+                Designed & Crafted by Nicky Waites with the help of <a href="https://tailwindcss.com/" target="_blank" class="text-red-700 hover:font-medium" rel="noreferrer noopener">Tailwind CSS</a>
+            </span>
+            @await Html.PartialAsync("_socials", new Web.SocialViewModel { Social = "text-xl" })
+
+        </div>
+    </footer>
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>
